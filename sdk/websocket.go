@@ -8,11 +8,12 @@ import (
 	"bytes"
 	j "encoding/json"
 	"fmt"
-	"golang.org/x/net/websocket"
 	"io"
 	"net/url"
 	"strings"
 	"time"
+
+	"golang.org/x/net/websocket"
 )
 
 var (
@@ -250,7 +251,7 @@ func (c *ClientWebsocket) buildSubscribe(destination string) *subscribe {
 }
 
 func (c *ClientWebsocket) wsConnect() error {
-	c.changeURLPort()
+	// c.changeURLPort()
 	var timeout <-chan time.Time
 	if *c.duration != time.Duration(0) {
 		timeout = time.After(*c.duration * time.Millisecond)
